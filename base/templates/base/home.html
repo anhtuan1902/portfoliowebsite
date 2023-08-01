@@ -1,0 +1,123 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+  <nav class="navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="{% static 'images/TAT.png' %}" height="250px" width="325px" alt="TAT"></a>
+      <button class="navbar-toggler fs-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+        aria-controls="offcanvasNavbar2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+        aria-labelledby="offcanvasNavbar2Label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbar2Label"><img src="{% static 'images/TAT.png' %}" height="200px" width="300px"
+              alt="TAT"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-center flex-grow-1">
+            <li class="nav-item mx-5">
+              <a class="nav-link text-light" href="#about">About</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a class="nav-link text-light" aria-current="page" href="#project">Project</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a class="nav-link text-light" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="text-light text-center mb-5">
+    <p class="text-banner py-200">
+      Hi, my name is <br> <span class="text-shadow">Tran Anh
+        Tuan.</span><br>I'am a <span class="text-shadow">Python Developer</span>
+    </p>
+  </section>
+  <section class="text-light container text-center mb-5">
+    <p class="py-5 text-header text-shadow" id='about'>About me</p>
+    <div class="text mb-5">
+      <p class="text-start text">Short-term goal:</p>
+      <p class="text-start text mb-5">• Exploring modern software development
+        techniques.<br>• Seeking opportunities to work in a professional and dynamic software development
+        environment.<br>• Building skills and gaining experience through work, learning, and communication.</p>
+      <p class="text-start text">Long-term term goal:</p>
+      <p class="text-start text mb-5"> • Becoming a versatile software
+        development expert with the ability to build complex
+        software systems and expand their capabilities.</p>
+    </div>
+    <p class="text-center text my-5">My Skills</p>
+    <div class="container row">
+      {% for cate in categories %}
+      <div class="col-md-3 col-sm-6 mb-5">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-light">
+              <img src={{ cate.img.url }} alt="Avatar">
+            </div>
+            <div class="flip-card-back">
+              <p class="pt-3 text-inside text-color">{{ cate.name }}</p>
+              <p class="pt-2 text-center text-color">
+                {% for skill in skills %}
+                  {% if skill.cate_skill == cate %}
+                    <span class="text-inside"> {{skill.name_skill}}, </span>
+                  {% endif %}
+                {% endfor %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <h3 class="text-center col">There are no skill in the database...</h3>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="text-white container text-center">
+    <p class="py-5 text-header text-shadow" id="project">My Project</p>
+
+    <div class="card-group">
+      {% for project in projects %}
+      <div class="card mx-1">
+        <img src={{ project.img.url }} class="card-img-top" alt={{ project.title }}>
+        <div class="card-body">
+          <h5 class="text-color text-card">{{ project.title }}</h5>
+          <p class=" text-card"><small class="text-muted">({{project.start_project}} - {{project.end_project}})</small></p>
+          <p>
+            <span class="badge text-card rounded-pill text-bg-secondary"><small>{{project.skills}}</small></span>
+          </p>
+          <p class="text-color text-card">{{ project.description}}</p>
+          <p class='text-center text-card'><a class='text-color' href={{ project.link }} class="stretched-link">Go to project</a></p>
+        </div>
+        <div class="card-footer"><p class="card-text"><small class="text-muted">{{ project.updated_date}}</small></p></div>
+      </div>
+      {% empty %}
+      <h3 class="text-center col">Don't have project...</h3>
+      {% endfor %}
+    </div> 
+    
+  </section>
+  <section class="section--1 mb-5">
+    <p class="py-5 text-header text-shadow" id="contact">Contact</p>
+    <div class="container card">
+      <div class="container py-4">
+        <form class="contact--form" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+         <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label d-block">{{ field.label }}</label>
+           {{field}}
+         </div>
+        {% endfor %}
+        <input type="submit" class="btn btn-primary" />
+      </form>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

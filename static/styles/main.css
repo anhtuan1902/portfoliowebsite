@@ -1,0 +1,243 @@
+body {
+  font-family: 'Courier New', Courier, monospace !important;
+  font-weight: 1000 !important;
+}
+
+.background-color-default {
+  background-color: #B8C9F5 !important;
+}
+
+.py-200 {
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+.text-color {
+  color: #345694 !important;
+}
+
+.nav-item {
+  margin-left: 250px !important;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  border-radius: 10%;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #ffffff;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.section--1 {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.contact--form{
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+  .navbar-brand img {
+    height: 100px;
+    width: 200px;
+  }
+
+  .text-header {
+    font-size: 40px;
+  }
+
+  .nav-link {
+    font-size: 20px;
+  }
+
+  .text-banner {
+    font-size: 40px !important;
+  }
+
+  .text {
+    font-size: 20px !important;
+  }
+
+  .text span {
+    font-size: 25px !important;
+  }
+
+  .flip-card {
+    width: 200px;
+    height: 200px;
+  }
+
+  .flip-card-front img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .text-card {
+    font-size: 25px !important;
+  }
+  
+}
+
+
+/* Media query for screens larger than 1200px */
+@media (min-width: 1200px)  {
+  h1 {
+    font-size: 32px !important;
+  }
+
+  .text-header {
+    font-size: 55px !important;
+  }
+
+  .text-banner {
+    font-size: 65px !important;
+  }
+
+  .text {
+    font-size: 30px !important;
+  }
+
+  .nav-link {
+    font-size: 35px !important;
+    margin-right: 80px;
+  }
+
+  .flip-card-front img {
+    width: 300px;
+    height: 300px;
+    border-radius: 30%;
+  }
+
+  .text-inside {
+    font-size: 20px !important;
+  }
+
+  .text-card {
+    font-size: 10px !important;
+  }
+
+}
+
+/* Media query for screens between 600px and 1200px */
+@media (min-width: 600px) and (max-width: 1200px) {
+  .navbar-brand img {
+    height: 100px;
+    width: 200px;
+  }
+
+  .nav-link {
+    font-size: 35px !important;
+  }
+
+  .text-header {
+    font-size: 45px;
+  }
+
+  .text-banner {
+    font-size: 45px !important;
+  }
+
+  .text {
+    font-size: 25px !important;
+  }
+
+  .text span {
+    font-size: 35px !important;
+  }
+
+  .flip-card {
+    width: 190px;
+    height: 250px;
+  }
+
+  .flip-card-front img {
+    width: 190px;
+    height: 250px;
+  }
+
+  .text-inside {
+    font-size: 10px;
+  }
+
+  .text-card{
+    font-size: 10px !important;
+  }
+
+  p.card-body {
+    height: 200px;
+  }
+
+}
+
+
+.text-shadow {
+  font-style: italic;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: #fff;
+  -webkit-text-stroke-width: 1px;
+  text-shadow: 2px 2px 10px #B8C9F5;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  letter-spacing: 0.2em;
+  animation: flicker 0.5s ease-in-out infinite alternate;
+
+  :hover {
+    color: #fff;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.5;
+    text-shadow: 2px 2px 10px #345694;
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: 2px 2px 20px #245fce;
+  }
+}
+
+
