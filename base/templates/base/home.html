@@ -81,30 +81,31 @@
   <section class="text-white container text-center">
     <p class="py-5 text-header text-shadow" id="project">My Project</p>
 
-    <div class="card-group">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       {% for project in projects %}
-      <div class="card mx-1">
-        <img src={{ project.img.url }} class="card-img-top" alt={{ project.title }}>
-        <div class="card-body">
-          <h5 class="text-color text-card">{{ project.title }}</h5>
-          <p class=" text-card"><small class="text-muted">({{project.start_project}} - {{project.end_project}})</small></p>
-          <p>
-            <span class="badge text-card rounded-pill text-bg-secondary"><small>{{project.skills}}</small></span>
-          </p>
-          <p class="text-color text-card">{{ project.description}}</p>
-          <p class='text-center text-card'><a class='text-color' href={{ project.link }} class="stretched-link">Go to project</a></p>
+      <div class="col">
+        <div class="card h-100">
+          <img src={{ project.img.url }} class="card-img-top" alt={{ project.title }}>
+          <div class="card-body">
+            <h5 class="card-title text-color">{{ project.title }}</h5>
+            <p class=" text-card"><small class="text-muted">({{project.start_project}} - {{project.end_project}})</small></p>
+            <p>
+              <span class="badge text-card rounded-pill text-bg-secondary"><small>{{project.skills}}</small></span>
+            </p>
+            <p class="card-text text-color">{{ project.description}}</p>
+            <p class='text-center text-card'><a class='text-color' href={{ project.link }} class="stretched-link">Go to project</a></p>
+          </div>
+          <div class="card-footer"><p class="card-text"><small class="text-muted">{{ project.updated_date}}</small></p></div>
         </div>
-        <div class="card-footer"><p class="card-text"><small class="text-muted">{{ project.updated_date}}</small></p></div>
       </div>
       {% empty %}
       <h3 class="text-center col">Don't have project...</h3>
       {% endfor %}
-    </div> 
-    
+    </div>
   </section>
   <section class="section--1 mb-5">
-    <p class="py-5 text-header text-shadow" id="contact">Contact</p>
     <div class="container card">
+      <p class="py-5 text-header text-shadow" id="contact">Contact</p>
       <div class="container py-4">
         <form class="contact--form" method="post">
         {% csrf_token %}

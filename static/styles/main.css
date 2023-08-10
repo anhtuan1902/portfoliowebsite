@@ -112,10 +112,6 @@ body {
     width: 200px;
     height: 200px;
   }
-
-  .text-card {
-    font-size: 25px !important;
-  }
   
 }
 
@@ -151,10 +147,6 @@ body {
 
   .text-inside {
     font-size: 20px !important;
-  }
-
-  .text-card {
-    font-size: 10px !important;
   }
 
 }
@@ -198,10 +190,6 @@ body {
 
   .text-inside {
     font-size: 10px;
-  }
-
-  .text-card{
-    font-size: 10px !important;
   }
 
   p.card-body {
